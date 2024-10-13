@@ -14,7 +14,7 @@
           aria-expanded="false"
         >
           <span class="sr-only">Open main menu</span>
-          <div v-html="menuIcon"></div>
+          <SvgMenuIcon />
         </button>
         <div class="hidden w-full md:block md:w-auto" id="navbar-default">
           <ul
@@ -33,12 +33,7 @@
 
 <script>
 import NavItem from '~/components/NavItem.vue'
-
-const MENU_ICON_SVG = `
-  <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
-    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
-  </svg>
-`
+import SvgMenuIcon from '~/components/SvgMenuIcon.vue'
 
 const NAV_ITEMS = [
   { text: 'Home', link: '/', current: true },
@@ -50,11 +45,13 @@ const NAV_ITEMS = [
 ]
 
 export default {
-  components: { NavItem },
+  components: {
+    NavItem,
+    SvgMenuIcon,
+  },
   data() {
     return {
       navItems: NAV_ITEMS,
-      menuIcon: MENU_ICON_SVG,
     }
   },
 }
