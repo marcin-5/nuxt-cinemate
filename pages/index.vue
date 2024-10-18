@@ -8,17 +8,8 @@
       </h1>
       <ul class="grid grid-cols-5 gap">
         <li v-for="movie in movies">
-          <MovieCard
-            :poster_path="movie.poster_path"
-            :title="movie.title"
-            :id="movie.id"
-            :overview="movie.overview"
-            :release_date="movie.release_date"
-            :popularity="movie.popularity"
-            :item="movie"
-          />
+          <MovieCard :item="movie" />
         </li>
-        <br /><br />
       </ul>
     </section>
     <section>
@@ -29,14 +20,7 @@
       </h1>
       <ul class="grid grid-cols-5 gap">
         <li v-for="tvSeries in series">
-          <SeriesCard
-            :poster_path="tvSeries.poster_path"
-            :name="tvSeries.name"
-            :overview="tvSeries.overview"
-            :first_air_date="tvSeries.first_air_date"
-            :popularity="tvSeries.popularity"
-            :item="tvSeries"
-          />
+          <SeriesCard :item="tvSeries" />
         </li>
       </ul>
     </section>
