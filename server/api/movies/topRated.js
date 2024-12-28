@@ -12,10 +12,10 @@ async function fetchTopRated(url, accessToken) {
 }
 
 export default defineEventHandler(async (event) => {
-  const { AccessToken } = useRuntimeConfig(event)
+  const { accessToken } = useRuntimeConfig(event)
 
-  const topRatedMovies = await fetchTopRated(TOP_RATED_MOVIES_URL, AccessToken)
-  const topRatedSeries = await fetchTopRated(TOP_RATED_SERIES_URL, AccessToken)
+  const topRatedMovies = await fetchTopRated(TOP_RATED_MOVIES_URL, accessToken)
+  const topRatedSeries = await fetchTopRated(TOP_RATED_SERIES_URL, accessToken)
 
   return { topRatedMovies, topRatedSeries }
 })

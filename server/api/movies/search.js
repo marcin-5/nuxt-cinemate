@@ -16,10 +16,10 @@ const fetchResults = async (url, searchTerm, accessToken) => {
 
 export default defineEventHandler(async (event) => {
   const { searchTerm } = getQuery(event)
-  const { AccessToken } = useRuntimeConfig(event)
+  const { accessToken } = useRuntimeConfig(event)
 
-  const movies = await fetchResults(MOVIE_SEARCH_URL, searchTerm, AccessToken)
-  const series = await fetchResults(SERIES_SEARCH_URL, searchTerm, AccessToken)
+  const movies = await fetchResults(MOVIE_SEARCH_URL, searchTerm, accessToken)
+  const series = await fetchResults(SERIES_SEARCH_URL, searchTerm, accessToken)
 
   return { movies, series }
 })

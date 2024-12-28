@@ -1,7 +1,12 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+if (!process.env.ACCESS_TOKEN) {
+  throw new Error('ACCESS_TOKEN environment variable is not defined')
+}
+
 export default defineNuxtConfig({
-  compatibilityDate: '2024-04-03',
-  devtools: { enabled: true },
+  devtools: { enabled: process.env.NODE_ENV !== 'production' },
   modules: ['@nuxtjs/tailwindcss'],
-  runtimeConfig: { AccessToken: process.env.ACCESS_TOKEN },
+  runtimeConfig: {
+    accessToken: process.env.ACCESS_TOKEN || '',
+  },
 })

@@ -7,12 +7,12 @@ const COMMON_QUERY_PARAMS = {
   sort_by: 'popularity.desc',
 }
 
-async function fetchData(url, AccessToken, extraParams = {}) {
+async function fetchData(url, accessToken, extraParams = {}) {
   return await $fetch(url, {
     method: 'get',
     headers: {
       accept: 'application/json',
-      Authorization: `Bearer ${AccessToken}`,
+      Authorization: `Bearer ${accessToken}`,
     },
     query: {
       ...COMMON_QUERY_PARAMS,
@@ -23,10 +23,10 @@ async function fetchData(url, AccessToken, extraParams = {}) {
 
 export default defineEventHandler(async (event) => {
   const config = useRuntimeConfig(event)
-  const { AccessToken } = config
+  const { accessToken } = config
 
-  const movies = await fetchData(`${API_BASE_URL}/movie`, AccessToken)
-  const series = await fetchData(`${API_BASE_URL}/tv`, AccessToken, {
+  const movies = await fetchData(`${API_BASE_URL}/movie`, accessToken)
+  const series = await fetchData(`${API_BASE_URL}/tv`, accessToken, {
     include_null_first_air_dates: false,
   })
   return { movies, series }
