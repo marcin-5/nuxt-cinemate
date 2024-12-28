@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="my-2 mx-1">
     <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
       <NuxtLink @click="changeItemState(item)" :to="`/item/${item.name}`">
         <img class="rounded-t-lg" :src="`${imageSiteUrl}${item.poster_path}`" alt="Series Image" />
