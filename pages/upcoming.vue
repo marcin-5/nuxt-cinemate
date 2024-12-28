@@ -1,33 +1,16 @@
 <template>
   <ErrorAlert v-if="error" :error="error" />
   <div v-else>
-    <section>
-      <h1
-        class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white"
-      >
-        Upcoming Movies
-      </h1>
-
-      <ul class="grid grid-cols-5 gap mb-10">
-        <li v-for="movie in movies">
-          <MovieCard
-            :poster_path="movie.poster_path"
-            :title="movie.title"
-            :id="movie.id"
-            :overview="movie.overview"
-            :release_date="movie.release_date"
-            :popularity="movie.popularity"
-            :item="movie"
-          />
-        </li>
-      </ul>
-    </section>
+    <!-- Upcoming Movies Section -->
+    <ContentSection title="Upcoming Movies" :items="movies" :cardComponent="MovieCard" />
   </div>
 </template>
 
 <script setup>
 import { fetchData } from '/composables/fetchData.js'
 import ErrorAlert from '/components/ErrorAlert.vue'
+import ContentSection from '/components/ContentSection.vue'
+import MovieCard from '/components/MovieCard.vue'
 
 const { movies, series, error } = await fetchData('/api/movies/upcoming', 'upcomingMovies')
 </script>

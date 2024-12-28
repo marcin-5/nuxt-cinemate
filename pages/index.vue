@@ -1,36 +1,20 @@
 <template>
   <ErrorAlert v-if="error" :error="error" />
   <div v-else>
-    <section>
-      <h1
-        class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white"
-      >
-        Featured Movies
-      </h1>
-      <ul class="grid grid-cols-5 gap mb-10">
-        <li v-for="movie in movies">
-          <MovieCard :item="movie" />
-        </li>
-      </ul>
-    </section>
-    <section>
-      <h1
-        class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white"
-      >
-        Featured Tv Series
-      </h1>
-      <ul class="grid grid-cols-5 gap">
-        <li v-for="tvSeries in series">
-          <SeriesCard :item="tvSeries" />
-        </li>
-      </ul>
-    </section>
+    <!-- Featured Movies Section -->
+    <ContentSection title="Featured Movies" :items="movies" :cardComponent="MovieCard" />
+
+    <!-- Featured TV Series Section -->
+    <ContentSection title="Featured Tv Series" :items="series" :cardComponent="SeriesCard" />
   </div>
 </template>
 
 <script setup>
 import { fetchData } from '/composables/fetchData.js'
 import ErrorAlert from '/components/ErrorAlert.vue'
+import ContentSection from '/components/ContentSection.vue'
+import MovieCard from '/components/MovieCard.vue'
+import SeriesCard from '/components/SeriesCard.vue'
 
 const { movies, series, error } = await fetchData('/api/movies/discover', 'movies', 'series')
 </script>
