@@ -7,7 +7,7 @@
       >
         Featured Movies
       </h1>
-      <ul class="grid grid-cols-5 gap">
+      <ul class="grid grid-cols-5 gap mb-10">
         <li v-for="movie in movies">
           <MovieCard :item="movie" />
         </li>
