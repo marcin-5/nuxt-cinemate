@@ -18,6 +18,8 @@
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^6.12.2",
+    "eslint-plugin-import": "^2.31.0",
+    "install": "^0.13.0",
     "prettier": "^3.4.2"
   }
 }

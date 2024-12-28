@@ -21,9 +21,15 @@ module.exports = {
     'linebreak-style': ['error', 'unix'],
     'no-multiple-empty-lines': 'error',
     'object-curly-spacing': ['error', 'always'],
-    'sort-imports': ['error', { ignoreCase: true, ignoreDeclarationSort: true }],
     'vue-scoped-css/enforce-style-type': ['error', { allows: ['scoped', 'plain'] }],
     'vue/block-order': ['error', { order: ['template', 'script', 'style'] }],
     'vue/component-name-in-template-casing': ['error', 'kebab-case'],
+    'import/order': [
+      'error',
+      {
+        alphabetize: { order: 'asc', caseInsensitive: true },
+        groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index', 'type'],
+      },
+    ],
   },
 }
