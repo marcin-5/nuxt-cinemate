@@ -16,10 +16,7 @@
 </template>
 
 <script setup>
-const movies = useState(() => [])
-const { data } = await useFetch('/api/movies/nowPlaying', {
-  transform: (data) => {
-    movies.value = data.nowPlayingMovies.results
-  },
-})
+import { fetchData } from '/composables/fetchData.js'
+
+const { movies, series, error } = await fetchData('/api/movies/nowPlaying', 'nowPlayingMovies')
 </script>

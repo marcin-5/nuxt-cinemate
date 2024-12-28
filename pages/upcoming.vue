@@ -26,11 +26,7 @@
 </template>
 
 <script setup>
-const movies = useState(() => [])
+import { fetchData } from '/composables/fetchData.js'
 
-const { data } = await useFetch('/api/movies/upcoming', {
-  transform: (data) => {
-    movies.value = data.upcomingMovies.results
-  },
-})
+const { movies, series, error } = await fetchData('/api/movies/upcoming', 'upcomingMovies')
 </script>

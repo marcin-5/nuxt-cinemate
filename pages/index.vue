@@ -1,5 +1,12 @@
 <template>
-  <div>
+  <div
+    v-if="error"
+    class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+    role="alert"
+  >
+    {{ error }}
+  </div>
+  <div v-else>
     <section>
       <h1
         class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white"
@@ -26,13 +33,9 @@
     </section>
   </div>
 </template>
+
 <script setup>
-const movies = useState(() => [])
-const series = useState(() => [])
-const { data } = await useFetch('/api/movies/discover', {
-  transform: (data) => {
-    movies.value = data.movies.results
-    series.value = data.series.results
-  },
-})
+import { fetchData } from '/composables/fetchData.js'
+
+const { movies, series, error } = await fetchData('/api/movies/discover', 'movies', 'series')
 </script>

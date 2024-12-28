@@ -28,12 +28,7 @@
 </template>
 
 <script setup>
-const movies = useState(() => [])
-const series = useState(() => [])
-const { data } = await useFetch('/api/movies/popular', {
-  transform: (data) => {
-    movies.value = data.popularMovies.results
-    series.value = data.popularSeries.results
-  },
-})
+import { fetchData } from '/composables/fetchData.js'
+
+const { movies, series, error } = await fetchData('/api/movies/popular', 'popularMovies', 'popularSeries')
 </script>
