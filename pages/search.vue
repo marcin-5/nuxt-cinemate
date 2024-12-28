@@ -83,14 +83,17 @@
 const searchTerm = useState('searchTerm', () => '')
 const movies = useState(() => [])
 const series = useState(() => [])
-const { data } = await useFetch('/api/movies/search', {
-  query: {
-    searchTerm,
-  },
-  immediate: false,
-  transform: (data) => {
-    movies.value = data.movies.results
-    series.value = data.series.results
-  },
+
+onMounted(async () => {
+  const { data } = await useFetch('/api/movies/search', {
+    query: {
+      searchTerm,
+    },
+    immediate: false,
+    transform: (data) => {
+      movies.value = data.movies.results
+      series.value = data.series.results
+    },
+  })
 })
 </script>
