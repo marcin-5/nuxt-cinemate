@@ -13,7 +13,7 @@ module.exports = {
     '@vue/eslint-config-typescript/recommended',
   ],
   parserOptions: {
-    ecmaVersion: 12,
+    ecmaVersion: 2021,
     sourceType: 'module',
   },
   rules: {
