@@ -6,7 +6,10 @@ if (!process.env.ACCESS_TOKEN) {
 export default defineNuxtConfig({
   devtools: { enabled: process.env.NODE_ENV !== 'production' },
   modules: ['@nuxtjs/tailwindcss'],
+
   runtimeConfig: {
     accessToken: process.env.ACCESS_TOKEN || '',
   },
+
+  compatibilityDate: '2024-12-28'
 })
