@@ -35,8 +35,10 @@
 import NavItem from '~/components/NavItem.vue'
 import SvgMenuIcon from '~/components/SvgMenuIcon.vue'
 
+const INDEX_ROUTE = '/'
+
 const NAV_ITEMS = [
-  { text: 'Home', link: '/', current: true },
+  { text: 'Home', link: '/' },
   { text: 'Search', link: '/search' },
   { text: 'Popular', link: '/popular' },
   { text: 'Now Playing', link: '/now-playing' },
@@ -53,6 +55,27 @@ export default {
     return {
       navItems: NAV_ITEMS,
     }
+  },
+  computed: {
+    computedRouteName() {
+      const currentRoute = useRoute()
+      return currentRoute.name
+    },
+  },
+  watch: {
+    computedRouteName: {
+      immediate: true,
+      handler: 'updateNavItems',
+    },
+  },
+  methods: {
+    updateNavItems(newRouteName) {
+      const resolvedRoute = newRouteName === 'index' ? INDEX_ROUTE : `/${newRouteName}`
+
+      this.navItems.forEach((item) => {
+        item.current = item.link === resolvedRoute
+      })
+    },
   },
 }
 </script>
