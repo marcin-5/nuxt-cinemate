@@ -7,7 +7,6 @@ module.exports = {
     node: true,
   },
   extends: [
-    'eslint:recommended',
     'standard',
     'plugin:vue/vue3-recommended',
     'plugin:vue-scoped-css/vue3-recommended',
