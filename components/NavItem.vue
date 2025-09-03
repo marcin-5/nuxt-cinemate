@@ -3,8 +3,11 @@
     <NuxtLink
       :to="item.link"
       :class="[
-        'block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-gray-700 md:p-0 dark:text-white md:dark:hover:text-gray-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent',
-        { 'text-white bg-gray-700 md:bg-transparent md:text-gray-700': item.current },
+        'block py-2 px-3 rounded md:border-0 md:p-0',
+        // Base colors for non-active items
+        'text-slate-900 hover:bg-slate-100 md:hover:bg-transparent md:hover:text-slate-700 dark:text-slate-100 dark:hover:text-white md:dark:hover:text-slate-300 md:dark:hover:bg-transparent',
+        // Active item: make it clearly distinct and match hover tone
+        { 'text-slate-700 dark:text-white font-semibold underline underline-offset-4 decoration-2': item.current },
       ]"
       :aria-current="item.current ? 'page' : undefined"
     >
