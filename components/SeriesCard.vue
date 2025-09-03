@@ -1,16 +1,16 @@
 <template>
   <div class="my-2 mx-1">
-    <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+    <div class="max-w-sm bg-slate-50 border border-slate-200 rounded-lg shadow dark:bg-slate-800 dark:border-slate-700">
       <NuxtLink @click="changeItemState(item)" :to="`/item/${item.name}`">
         <img class="rounded-t-lg" :src="`${imageSiteUrl}${item.poster_path}`" alt="Series Image" />
       </NuxtLink>
       <div class="p-5">
         <a href="#">
-          <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{ item.name }}</h5>
+          <h5 class="mb-2 text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-100">{{ item.name }}</h5>
         </a>
-        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">First Air Date: {{ item.first_air_date }}</p>
+        <p class="mb-3 font-normal text-slate-700 dark:text-slate-300">First Air Date: {{ item.first_air_date }}</p>
         <p
-          class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-black bg-white-700 rounded-lg hover:bg-white-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-slate-900 bg-slate-100 rounded-lg hover:bg-slate-200 focus:ring-4 focus:outline-none focus:ring-slate-300 dark:text-slate-100 dark:bg-slate-700 dark:hover:bg-slate-600 dark:focus:ring-slate-600"
         >
           {{ item.overview || 'No Overview Available' }}
         </p>

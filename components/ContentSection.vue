@@ -1,7 +1,7 @@
 <template>
   <section class="container mx-auto px-2 py-4">
     <h1
-      class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white"
+      class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-slate-900 md:text-5xl lg:text-6xl dark:text-slate-100"
     >
       {{ title }}
     </h1>
