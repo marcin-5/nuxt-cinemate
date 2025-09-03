@@ -7,16 +7,16 @@
           <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Cinemate</span>
         </NuxtLink>
         <button
-          data-collapse-toggle="navbar-default"
           type="button"
           class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-slate-500 rounded-lg md:hidden hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-slate-200 dark:text-slate-400 dark:hover:bg-slate-700 dark:focus:ring-slate-600"
-          aria-controls="navbar-default"
-          aria-expanded="false"
+          :aria-controls="'navbar-default'"
+          :aria-expanded="isMenuOpen.toString()"
+          @click="isMenuOpen = !isMenuOpen"
         >
           <span class="sr-only">Open main menu</span>
           <SvgMenuIcon />
         </button>
-        <div class="hidden w-full md:flex md:items-center md:w-auto" id="navbar-default">
+        <div :class="[isMenuOpen ? 'block' : 'hidden', 'w-full md:flex md:items-center md:w-auto']" id="navbar-default">
           <ul
             class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-slate-100 rounded-lg bg-slate-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-slate-50 dark:bg-slate-800 md:dark:bg-slate-900 dark:border-slate-700"
           >
@@ -61,6 +61,7 @@ export default {
   data() {
     return {
       navItems: NAV_ITEMS,
+      isMenuOpen: false,
     }
   },
   computed: {
@@ -72,7 +73,10 @@ export default {
   watch: {
     computedRouteName: {
       immediate: true,
-      handler: 'updateNavItems',
+      handler(newVal) {
+        this.updateNavItems(newVal)
+        this.isMenuOpen = false
+      },
     },
   },
   methods: {
