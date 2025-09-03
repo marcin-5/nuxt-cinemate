@@ -16,12 +16,17 @@
           <span class="sr-only">Open main menu</span>
           <SvgMenuIcon />
         </button>
-        <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+        <div class="hidden w-full md:flex md:items-center md:w-auto" id="navbar-default">
           <ul
             class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700"
           >
             <NavItem v-for="item in navItems" :key="item.link" :item="item" />
           </ul>
+          <div class="mt-4 md:mt-0 md:ml-8">
+            <ClientOnly fallback-tag="span">
+              <ThemeToggle />
+            </ClientOnly>
+          </div>
         </div>
       </div>
     </nav>
@@ -34,6 +39,7 @@
 <script>
 import NavItem from '~/components/NavItem.vue'
 import SvgMenuIcon from '~/components/SvgMenuIcon.vue'
+import ThemeToggle from '~/components/ThemeToggle.vue'
 
 const INDEX_ROUTE = '/'
 
@@ -50,6 +56,7 @@ export default {
   components: {
     NavItem,
     SvgMenuIcon,
+    ThemeToggle,
   },
   data() {
     return {

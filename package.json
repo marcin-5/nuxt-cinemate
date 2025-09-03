@@ -10,6 +10,7 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@heroicons/vue": "^2.1.5",
     "caniuse-lite": "^1.0.30001739",
     "flowbite": "^2.5.2",
     "flowbite-vue": "^0.1.9",
