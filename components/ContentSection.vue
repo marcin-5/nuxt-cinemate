@@ -5,8 +5,8 @@
     >
       {{ title }}
     </h1>
-    <ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 mb-10">
-      <li v-for="item in items" :key="item.id">
+    <ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 mb-10 items-stretch">
+      <li v-for="item in items" :key="item.id" class="h-full">
         <component :is="cardComponent" :item="item" />
       </li>
     </ul>
